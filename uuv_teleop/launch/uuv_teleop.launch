@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="uuv_name"/>
+  <arg name="joy_id" default="0"/>
+  <!-- Joystick mapping - default: XBox 360 controller -->
+  <!-- To activate the vehicle teleop, the deadman button has to remain pressed -->
+  <arg name="deadman_button" default="-1"/>
+  <arg name="exclusion_buttons" default="4,5"/>
+  <arg name="axis_roll" default="-1"/>
+  <arg name="axis_pitch" default="-1"/>
+  <arg name="axis_yaw" default="0"/>
+  <arg name="axis_x" default="4"/>
+  <arg name="axis_y" default="3"/>
+  <arg name="axis_z" default="1"/>
+  <arg name="gain_roll" default="0.0"/>
+  <arg name="gain_pitch" default="0.0"/>
+  <arg name="gain_yaw" default="0.2"/>
+  <arg name="gain_x" default="0.3"/>
+  <arg name="gain_y" default="0.3"/>
+  <arg name="gain_z" default="0.3"/>
+  <arg name="output_topic" default="cmd_vel"/>
+  <!-- The type of message can also be geometry_msgs/Accel -->
+  <arg name="message_type" default="twist"/>
+
+  <group>
+    <push-ros-namespace namespace="$(var uuv_name)"/>
+
+    <node pkg="joy" exec="joy_node" node-name="joystick">
+      <param name="autorepeat_rate" value="10.0"/>
+      <param name="dev" value="/dev/input/js$(var joy_id)"/>
+    </node>
+    
+    <node pkg="uuv_teleop" exec="vehicle_teleop.py" node-name="joy_uuv_velocity_teleop" output="screen">
+      <remap from="output" to="/$(var uuv_name)/$(var output_topic)"/>
+      <remap from="joy" to="/$(var uuv_name)/joy"/>
+      <param name="type" value="$(var message_type)"/>
+      <param name="deadman_button" value="$(var deadman_button)"/>
+      <!-- Eloquent: special handling as a string which will be manually parsed -->
+      <!-- Should be changed using [] syntax -->
+      <param name="exclusion_buttons" value="$(var exclusion_buttons)"/> <!--value-sep=","/>-->
+      <param name="mapping">
+        <param name="x">
+          <param name="axis" value="$(var axis_x)"/>
+          <param name="gain" value="$(var gain_x)"/>
+        </param>
+        <param name="y">
+          <param name="axis" value="$(var axis_y)"/>
+          <param name="gain" value="$(var gain_y)"/>
+        </param>
+        <param name="z">
+          <param name="axis" value="$(var axis_z)"/>
+          <param name="gain" value="$(var gain_z)"/>
+        </param>
+        <param name="roll">
+          <param name="axis" value="$(var axis_roll)"/>
+          <param name="gain" value="$(var gain_roll)"/>
+        </param>
+        <param name="pitch">
+          <param name="axis" value="$(var axis_pitch)"/>
+          <param name="gain" value="$(var gain_pitch)"/>
+        </param>
+         <param name="yaw">
+          <param name="axis" value="$(var axis_yaw)"/>
+          <param name="gain" value="$(var gain_yaw)"/>
+        </param>
+      </param>
+    </node>
+  </group>
+</launch>
