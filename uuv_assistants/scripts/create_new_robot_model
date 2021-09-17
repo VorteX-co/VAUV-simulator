@@ -54,12 +54,11 @@ if __name__ == '__main__':
             sys.exit(1)
         print('Creating the colcon package...')
         os.system('colcon_create_pkg ' + colcon_pkg)
-        if not os.path.isdir(colcon_pkg):
-            print('Colcon package could not be created')
-            sys.exit(-1)
-        print('Done!')
+			
 
-    template_path = os.path.join(get_package_share_directory('uuv_assistants'), 'templates', 'robot_model')
+    #template_path = os.path.join(get_package_share_directory('uuv_assistants'), 'templates', 'robot_model')
+    template_path = "/home/mohamedd/vortex_ws/src/Plankton/uuv_assistants/templates/robot_model"
+
 
     for d in os.listdir(template_path):
         new_folder = os.path.join(colcon_pkg, d)

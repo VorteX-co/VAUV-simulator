@@ -38,13 +38,13 @@
       suffix="${suffix}"
       parent_link="${parent_link}"
       topic="camera"
-      mass="0.1"
+      mass="0.01"
       update_rate="30"
       hfov="1.5125"
       width="768"
       height="492"
       stddev="0.02"
-      scale="1.0">
+      scale="0.3">
       <inertia ixx="0.00001" ixy="0.0" ixz="0.0" iyy="0.00001" iyz="0.0" izz="0.00001" />
       <xacro:insert_block name="origin" />
     </xacro:regular_camera_plugin_macro>
@@ -62,7 +62,7 @@
       width="768"
       height="492"
       stddev="0.02"
-      scale="1.0">
+      scale="0.3">
       <inertia ixx="0.00001" ixy="0.0" ixz="0.0" iyy="0.00001" iyz="0.0" izz="0.00001" />
       <xacro:insert_block name="origin" />>
     </xacro:regular_camera_plugin_macro>

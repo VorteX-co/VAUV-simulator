@@ -66,7 +66,7 @@
       suffix=""
       parent_link="${parent_link}"
       topic="sonar"
-      mass="0.015"
+      mass="2.015"
       update_rate="25"
       samples="768"
       fov="2.27"
@@ -102,7 +102,7 @@
       <xacro:insert_block name="origin" />
       <visual>
         <geometry>
-          <mesh filename="file://$(find uuv_sensor_ros_plugins)/meshes/p900.dae" scale="1 1 1"/>
+          <mesh filename="file://$(find uuv_sensor_ros_plugins)/meshes/pingsonar.dae" scale="1 1 1"/>
         </geometry>
       </visual>
     </xacro:multibeam_sonar>
