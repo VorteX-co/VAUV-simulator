@@ -68,7 +68,7 @@
 
   <include file="$(find-pkg-share uuv_assistants)/launch/message_to_tf.launch">
     <arg name="namespace" value="$(var namespace)"/>
-    <arg name="world_frame" value="world"/>
+    <arg name="world_frame" value="world_ned"/>
     <arg name="child_frame_id" value="/$(var namespace)/base_link"/>
   </include>
 

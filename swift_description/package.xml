@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<package format="3">
+  <name>swift_description</name>
+  <version>0.5.3</version>
+  <description>The swift_description package</description>
+ <maintainer email="mohameddbardana@gmail.com">Mohamed Magdii</maintainer>
+  <author email="mohameddbardana@gmail.com">Mohamed Magdii</author>
+
+  <license>Apache-2.0</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <exec_depend>gazebo_ros</exec_depend>
+  <exec_depend>plankton_utils</exec_depend>
+  <exec_depend>robot_state_publisher</exec_depend> 
+  <exec_depend>uuv_assistants</exec_depend>
+  <exec_depend>uuv_gazebo_ros_plugins</exec_depend>
+  <exec_depend>uuv_sensor_ros_plugins</exec_depend>
+  <exec_depend>xacro</exec_depend>
+
+  <test_depend>ament_cmake_pytest</test_depend>
+  <test_depend>xacro</test_depend> 
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

@@ -35,6 +35,6 @@
     </include>
 
     <!-- Start RViz  -->
-    <node name="rviz" pkg="rviz" type="rviz" output="screen" args="-d $(find uuv_gazebo)/rviz/controller_demo.rviz"/>
+    <node name="rviz2" pkg="rviz2" type="rviz2" output="screen" args="-d $(find uuv_gazebo)/rviz/controller_demo.rviz"/>
 
 </launch>

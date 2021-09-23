@@ -1,5 +1,5 @@
 Panels:
-  - Class: rviz/Displays
+  - Class: rviz_common/Displays
     Help Height: 82
     Name: Displays
     Property Tree Widget:
@@ -12,21 +12,21 @@ Panels:
         - /Waypoint path1
       Splitter Ratio: 0.721476018
     Tree Height: 552
-  - Class: rviz/Selection
+  - Class: rviz_common/Selection
     Name: Selection
-  - Class: rviz/Tool Properties
+  - Class: rviz_common/Tool Properties
     Expanded:
       - /2D Pose Estimate1
       - /2D Nav Goal1
       - /Publish Point1
     Name: Tool Properties
     Splitter Ratio: 0.588679016
-  - Class: rviz/Views
+  - Class: rviz_common/Views
     Expanded:
       - /Current View1
     Name: Views
     Splitter Ratio: 0.5
-  - Class: rviz/Time
+  - Class: rviz_common/Time
     Experimental: false
     Name: Time
     SyncMode: 0
@@ -34,7 +34,7 @@ Panels:
 Visualization Manager:
   Class: ""
   Displays:
-    - Class: rviz/TF
+    - Class: rviz_default_plugins/TF
       Enabled: true
       Frame Timeout: 15
       Frames:
@@ -136,7 +136,7 @@ Visualization Manager:
       Value: true
     - Alpha: 0.5
       Cell Size: 1
-      Class: rviz/Grid
+      Class: rviz_default_plugins/Grid
       Color: 160; 160; 164
       Enabled: true
       Line Style:
@@ -152,7 +152,7 @@ Visualization Manager:
       Plane Cell Count: 10
       Reference Frame: <Fixed Frame>
       Value: true
-    - Class: rviz/Image
+    - Class: rviz_default_plugins/Image
       Enabled: true
       Image Topic: /rexrov/rexrov/camera/camera_image
       Max Value: 1
@@ -165,7 +165,7 @@ Visualization Manager:
       Unreliable: false
       Value: true
     - Alpha: 1
-      Class: rviz/RobotModel
+      Class: rviz_default_plugins/RobotModel
       Collision Enabled: false
       Enabled: true
       Links:
@@ -281,7 +281,7 @@ Visualization Manager:
       Value: true
       Visual Enabled: true
     - Angle Tolerance: 0.100000001
-      Class: rviz/Odometry
+      Class: rviz_default_plugins/Odometry
       Color: 255; 25; 0
       Enabled: true
       Keep: 100
@@ -292,7 +292,7 @@ Visualization Manager:
       Value: true
     - Alpha: 0.5
       Buffer Length: 1
-      Class: rviz/Range
+      Class: rviz_default_plugins/Range
       Color: 255; 255; 255
       Enabled: true
       Name: DVL - Sonar 0
@@ -302,7 +302,7 @@ Visualization Manager:
       Value: true
     - Alpha: 0.5
       Buffer Length: 1
-      Class: rviz/Range
+      Class: rviz_default_plugins/Range
       Color: 255; 255; 255
       Enabled: true
       Name: DVL - Sonar 1
@@ -312,7 +312,7 @@ Visualization Manager:
       Value: true
     - Alpha: 0.5
       Buffer Length: 1
-      Class: rviz/Range
+      Class: rviz_default_plugins/Range
       Color: 255; 255; 255
       Enabled: true
       Name: DVL - Sonar 2
@@ -322,7 +322,7 @@ Visualization Manager:
       Value: true
     - Alpha: 0.5
       Buffer Length: 1
-      Class: rviz/Range
+      Class: rviz_default_plugins/Range
       Color: 255; 255; 255
       Enabled: true
       Name: DVL - Sonar 3
@@ -330,7 +330,7 @@ Visualization Manager:
       Topic: /rexrov/dvl_sonar3
       Unreliable: false
       Value: true
-    - Class: rviz/Marker
+    - Class: rviz_default_plugins/Marker
       Enabled: true
       Marker Topic: /rexrov/current_velocity_marker
       Name: Current Velocity Marker
@@ -338,7 +338,7 @@ Visualization Manager:
         {}
       Queue Size: 100
       Value: true
-    - Class: rviz/MarkerArray
+    - Class: rviz_default_plugins/MarkerArray
       Enabled: true
       Marker Topic: /world_models
       Name: World models
@@ -348,7 +348,7 @@ Visualization Manager:
       Value: true
     - Alpha: 1
       Buffer Length: 1
-      Class: rviz/Path
+      Class: rviz_default_plugins/Path
       Color: 255; 85; 255
       Enabled: true
       Head Diameter: 0.300000012
@@ -368,7 +368,7 @@ Visualization Manager:
       Topic: /rexrov/trajectory_marker
       Unreliable: false
       Value: true
-    - Class: rviz/MarkerArray
+    - Class: rviz_default_plugins/MarkerArray
       Enabled: true
       Marker Topic: /rexrov/waypoint_markers
       Name: Waypoints
@@ -378,7 +378,7 @@ Visualization Manager:
       Value: true
     - Alpha: 1
       Buffer Length: 1
-      Class: rviz/Path
+      Class: rviz_default_plugins/Path
       Color: 255; 85; 255
       Enabled: true
       Head Diameter: 0.300000012
@@ -405,23 +405,23 @@ Visualization Manager:
     Frame Rate: 30
   Name: root
   Tools:
-    - Class: rviz/Interact
+    - Class: rviz_default_plugins/Interact
       Hide Inactive Objects: true
-    - Class: rviz/MoveCamera
-    - Class: rviz/Select
-    - Class: rviz/FocusCamera
-    - Class: rviz/Measure
-    - Class: rviz/SetInitialPose
+    - Class: rviz_default_plugins/MoveCamera
+    - Class: rviz_default_plugins/Select
+    - Class: rviz_default_plugins/FocusCamera
+    - Class: rviz_default_plugins/Measure
+    - Class: rviz_default_plugins/SetInitialPose
       Topic: /initialpose
-    - Class: rviz/SetGoal
+    - Class: rviz_default_plugins/SetGoal
       Topic: /move_base_simple/goal
-    - Class: rviz/PublishPoint
+    - Class: rviz_default_plugins/PublishPoint
       Single click: true
       Topic: /clicked_point
   Value: true
   Views:
     Current:
-      Class: rviz/Orbit
+      Class: rviz_default_plugins/Orbit
       Distance: 55.7395248
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987

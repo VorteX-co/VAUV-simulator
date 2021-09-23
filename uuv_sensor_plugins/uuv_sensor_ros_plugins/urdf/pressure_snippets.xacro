@@ -38,9 +38,9 @@
       parent_link="${parent_link}"
       topic="pressure"
       mass="0.015"
-      update_rate="10"
+      update_rate="20"
       range="30000"
-      noise_sigma="3.0"
+      noise_sigma="0.1"
       noise_amplitude="0.0"
       estimateDepth="false"
       standardPressure="101.325"
@@ -57,9 +57,9 @@
       parent_link="${parent_link}"
       topic="pressure"
       mass="0.015"
-      update_rate="10"
+      update_rate="20"
       range="30000"
-      noise_sigma="3.0"
+      noise_sigma="0.1"
       noise_amplitude="0.0"
       estimateDepth="false"
       standardPressure="101.325"
@@ -82,7 +82,7 @@
       </inertial>
       <visual>
         <geometry>
-          <mesh filename="file://$(find uuv_sensor_ros_plugins)/meshes/pressure.dae" scale="1 1 1"/>
+          <mesh filename="file://$(find uuv_sensor_ros_plugins)/meshes/pressure.dae" scale="0.3 0.3 0.3"/>
         </geometry>
       </visual>
       <xacro:no_collision/>

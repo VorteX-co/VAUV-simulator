@@ -4,7 +4,7 @@
   <!-- Name of the vehicle model -->
   <arg name="model_name" default="$(var uuv_name)"/>
   <!-- Thruster saturation -->
-  <arg name="saturation" default="1200"/>
+  <arg name="saturation" default="45"/>
   <!-- Flag to start the trajectory visual markers publisher -->
   <arg name="gui_on" default="true"/>
   <!-- Flag set as true to use load controller the parameters from the file  -->
@@ -20,9 +20,9 @@
   <!-- The following controller parameters have been optimized for the RexROV
        vehicle using SMAC (https://github.com/automl/SMAC3)
   -->
-  <arg name="Kp" default="11993.888,11993.888,11993.888,19460.069,19460.069,19460.069"/>
-  <arg name="Kd" default="9077.459,9077.459,9077.459,18880.925,18880.925,18880.925"/>
-  <arg name="Ki" default="321.417,321.417,321.417,2096.951,2096.951,2096.951"/>
+  <arg name="Kp" default="30.888,30.888,20.888,5.069,5.069,5.069"/>
+  <arg name="Kd" default="3.459,3.459,3.459,2.925,2.925,3.525"/>
+  <arg name="Ki" default="0.06,0.06,0.06,0.03,0.03,0.06"/>
 
   <arg name="controller_config_file" default="$(find-pkg-share uuv_trajectory_control)/config/controllers/pid/$(var model_name)/params.yaml"/>
 
@@ -76,9 +76,9 @@
         <!-- FIXME Bug due to relative topic under python -->
         <remap from="tf" to="/tf"/>
         <remap from="tf_static" to="/tf_static"/>
-        
+
         <param from="$(var controller_config_file)"/>
-        
+
         <param name="inertial_frame_id" value="world_ned"/>
       </node>
 
@@ -99,7 +99,7 @@
         <!-- FIXME Bug due to relative topic under python -->
         <remap from="tf" to="/tf"/>
         <remap from="tf_static" to="/tf_static"/>
-        
+
         <param from="$(var controller_config_file)"/>
 
         <param name="inertial_frame_id" value="world"/>

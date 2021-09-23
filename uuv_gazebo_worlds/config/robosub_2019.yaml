@@ -1,0 +1,26 @@
+publish_world_models:
+    ros__parameters:
+      meshes:
+        heightmap:
+          mesh: package://uuv_gazebo_worlds/models/pool/meshes/pool.dae
+          model: pool
+        seafloor:
+          plane: [100., 100., 0.1]
+          pose:
+             position: [0., 0., -20]
+        north:
+          plane: [0.1, 100., 20.]
+          pose:
+            position: [1000., 0., -10.]
+        south:
+          plane: [0.1, 100., 20.]
+          pose:
+            position: [-50., 0., -10.]
+        west:
+          plane: [100., 0.1, 20.]
+          pose:
+            position: [0., -50., -10.]
+        east:
+          plane: [100., 0.1, 20.]
+          pose:
+            position: [0, 50., -10.]

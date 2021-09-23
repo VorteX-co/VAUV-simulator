@@ -38,11 +38,11 @@
       suffix=""
       parent_link="${parent_link}"
       reference_frame="${inertial_reference_frame}"
-      update_rate="7"
+      update_rate="15"
       topic="dvl"
-      noise_sigma="0"
+      noise_sigma="0.01"
       noise_amplitude="0"
-      scale="1">
+      scale="0.3">
       <xacro:insert_block name="origin" />
     </xacro:dvl_plugin_macro>
   </xacro:macro>
@@ -72,11 +72,11 @@
       suffix=""
       parent_link="${parent_link}"
       reference_frame="world"
-      update_rate="7"
+      update_rate="15"
       topic="dvl"
       noise_sigma="0"
       noise_amplitude="0"
-      scale="1">
+      scale="0.3">
       <xacro:insert_block name="origin" />
     </xacro:dvl_plugin_macro>
   </xacro:macro>
@@ -121,7 +121,7 @@
           </scan>
           <range>
             <min>0.55</min>
-            <max>81</max>
+            <max>110</max>
             <resolution>0.01</resolution>
           </range>
           <noise>

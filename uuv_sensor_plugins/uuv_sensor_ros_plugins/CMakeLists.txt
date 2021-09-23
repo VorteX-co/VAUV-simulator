@@ -403,11 +403,6 @@ add_library(uuv_gazebo_ros_camera_plugin SHARED src/UnderwaterCameraROSPlugin.cp
 target_link_libraries(uuv_gazebo_ros_camera_plugin ${LIBS} ${GAZEBO_LIBRARIES})
 list(APPEND UUV_SENSOR_ROS_PLUGINS_LIST uuv_gazebo_ros_camera_plugin)
 
-add_library(image_sonar_ros_plugin SHARED src/gazebo_ros_image_sonar.cpp)
-target_link_libraries(image_sonar_ros_plugin ${OGRE_LIBRARIES} ${LIBS}
-  ${GAZEBO_LIBRARIES})
-list(APPEND UUV_SENSOR_ROS_PLUGINS_LIST image_sonar_ros_plugin)
-
 install(TARGETS ${UUV_SENSOR_ROS_PLUGINS_LIST}
   DESTINATION lib/${PROJECT_NAME}
   LIBRARY
@@ -471,6 +466,6 @@ ament_export_libraries(uuv_sensor_gazebo_msgs uuv_gazebo_ros_base_model_plugin
   uuv_gazebo_ros_pose_gt_plugin uuv_gazebo_ros_subsea_pressure_plugin
   uuv_gazebo_ros_dvl_plugin uuv_gazebo_ros_magnetometer_plugin
   uuv_gazebo_ros_cpc_plugin uuv_gazebo_ros_imu_plugin uuv_gazebo_ros_rpt_plugin
-  uuv_gazebo_ros_camera_plugin image_sonar_ros_plugin)# ${LIBS})
+  uuv_gazebo_ros_camera_plugin )# ${LIBS})
 
 ament_package()
