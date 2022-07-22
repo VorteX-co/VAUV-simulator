@@ -26,8 +26,23 @@
     namespace="${namespace}"
     parent_link="${namespace}/base_link"
     inertial_reference_frame="${inertial_reference_frame}">
-    <origin xyz="-1.4 0 -0.321" rpy="0 ${0.5*pi} 0"/>
+    <origin xyz="-1.44 0 -0.321" rpy="0 ${0.5*pi} 0"/>
   </xacro:default_dvl_macro>
+  <!-- Sonar  -->
+  <xacro:default_sonar_macro
+    namespace="${namespace}"
+    parent_link="${namespace}/base_link"
+    inertial_reference_frame="${inertial_reference_frame}">
+    <origin xyz="1.07 0 0.84" rpy="0 0 0"/>
+  </xacro:default_sonar_macro>
+
+  <!-- Depth_Camera  -->
+  <xacro:zed2_macro
+    namespace="${namespace}"
+    parent_link="${namespace}/base_link">
+    <origin xyz="1.3 0.0 0.6" rpy="0 0 0"/>
+  </xacro:zed2_macro>
+   
 
   <!-- Magnetometer  -->
   <xacro:default_magnetometer namespace="${namespace}" parent_link="${namespace}/base_link"/>
@@ -50,23 +65,8 @@
     <origin xyz="0 0 0" rpy="0 0 0"/>
   </xacro:default_imu_macro>
 
-  <!-- Mount a camera -->
-  <xacro:default_camera namespace="${namespace}" parent_link="${namespace}/base_link" suffix="">
-    <origin xyz="1.15 0 0.4" rpy="0 0.6 0"/>
-  </xacro:default_camera>
 
-  <xacro:default_camera namespace="${namespace}" parent_link="${namespace}/base_link" suffix="right">
-    <origin xyz="1.15 -0.63 0.4" rpy="0 0.6 0.4"/>
-  </xacro:default_camera>
 
-  <xacro:default_camera namespace="${namespace}" parent_link="${namespace}/base_link" suffix="left">
-    <origin xyz="1.15 0.63 0.4" rpy="0 0.6 -0.4"/>
-  </xacro:default_camera>
-
-    <!-- Forward-looking sonar sensor  -->
-  <xacro:forward_multibeam_p900 namespace="${namespace}" parent_link="${namespace}/base_link">
-    <origin xyz="1.4 0 0.65" rpy="0 0 0"/>
-  </xacro:forward_multibeam_p900> -->
 
 
   <!-- Mount a GPS. -->

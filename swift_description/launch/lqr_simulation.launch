@@ -1,0 +1,40 @@
+<launch>
+  
+  <arg name="debug" default="0"/>
+
+  <arg name="x" default="0"/>
+  <arg name="y" default="0"/>
+  <arg name="z" default="-0.0"/>
+  <arg name="roll" default="0.0"/>
+  <arg name="pitch" default="0.0"/>
+  <arg name="yaw" default="0.0"/>
+
+  <arg name="mode" default="default"/>
+  <arg name="namespace" default="swift"/>
+  <arg name="use_ned_frame" default="false"/>
+  <!-- <arg name="use_sim_time" default="true"/> -->
+
+
+  <include file="$(find-pkg-share uuv_gazebo_worlds)/launch/cybernetic_pool.launch">
+  </include>
+
+  <include file="$(find-pkg-share swift_description)/launch/upload_swift.launch">
+    <arg name="mode" value="$(var mode)"/>
+    <arg name="x" value="$(var x)"/>
+    <arg name="y" value="$(var y)"/>
+    <arg name="z" value="$(var z)"/>
+    <arg name="namespace" value="$(var namespace)"/>
+  </include>
+
+  <include file="$(find-pkg-share uuv_thruster_manager)/launch/thruster_manager.launch">
+    <arg name="model_name" value="$(var namespace)"/>  
+  </include>
+
+  <include file="$(find-pkg-share trajectory_tracking_lqr)/launch/lqr.launch.py">
+  </include>
+
+  <include file="$(find-pkg-share motion_planning)/launch/local_planning.launch.py">
+  </include>
+
+
+</launch>

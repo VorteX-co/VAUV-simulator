@@ -3,7 +3,11 @@ VAUV_simulator
 
 Maritime environment simulator based on [Plankton](https://github.com/Liquid-ai/Plankton) and used for developing and testing software various software modules for our SWIFT underwater vehicle.
 
-![SWIFT](./SWIFT.png)
+![SWIFT1](./SWIFT1.jpg)
+
+![SWIFT2](./SWIFT2.png)
+
+![SWIFT3](./SWIFT3.png)
 
 --------
 Overview
