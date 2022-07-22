@@ -23,14 +23,14 @@
     Vehicle's parameters (remember to enter the model parameters below)
   -->
   <!-- Mass -->
-  <xacro:property name="mass" value="35.5"/>
+  <xacro:property name="mass" value="36.7"/>
   <!-- Describing the dimensions of the vehicle's bounding box: width, length, height -->
   <xacro:property name="x_size" value="0.74"/>
   <xacro:property name="y_size" value="0.65"/>
   <xacro:property name="z_size" value="0.425"/>
   <!-- minion_usv_height is not really! It's just for run... We need first calculate the Fossen parameters -->
   <!-- Volume -->
-  <xacro:property name="volume" value="0.0364"/>
+  <xacro:property name="volume" value="0.036"/>
   <!-- Center of gravity -->
   <!--xacro:property name="cog" value="0.0 0.0  0.0"/-->
   <!--
@@ -50,7 +50,7 @@
 
   <!-- Parameters -->
   <xacro:property name="namespace" value="swift"/>
-  <xacro:property name="visual_mesh_file" value="file://$(find swift_description)/mesh/swift_body.stl"/>
+  <xacro:property name="visual_mesh_file" value="file://$(find swift_description)/meshes/swift_body.stl"/>
 
 
   <xacro:macro name="swift_base" params="namespace *gazebo inertial_reference_frame">

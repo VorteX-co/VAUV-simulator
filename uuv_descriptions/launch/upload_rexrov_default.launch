@@ -1,5 +1,5 @@
 <launch>
-  <arg name="debug" default="0"/>
+  <arg name="debug" default="1"/>
 
   <arg name="x" default="0"/>
   <arg name="y" default="0"/>

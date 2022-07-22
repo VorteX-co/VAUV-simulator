@@ -363,6 +363,7 @@ void UnderwaterObjectROSPlugin::PublishHydrodynamicWrenches(
     force = this->models[_link]->GetStoredVector(UUV_ADDED_MASS_FORCE);
     torque = this->models[_link]->GetStoredVector(UUV_ADDED_MASS_TORQUE);
 
+
     this->GenWrenchMsg(force, torque, msg);
     std::static_pointer_cast<
       rclcpp::Publisher<geometry_msgs::msg::WrenchStamped>>(myRosHydroPub[_link->GetName() + "/added_mass"])->publish(msg);

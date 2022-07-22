@@ -98,6 +98,7 @@ void UnderwaterObjectPlugin::Load(physics::ModelPtr _model,
   bool debugFlag = false;
   if (_sdf->HasElement("debug"))
     debugFlag = static_cast<bool>(_sdf->Get<int>("debug"));
+    debugFlag = true;
 
   // Center of buoyancy
   ignition::math::Vector3d cob;
@@ -186,7 +187,6 @@ void UnderwaterObjectPlugin::InitDebug(physics::LinkPtr _link,
   _hydro->SetStoreVector(UUV_ADDED_MASS_FORCE);
   _hydro->SetStoreVector(UUV_ADDED_MASS_TORQUE);
 }
-
 /////////////////////////////////////////////////
 void UnderwaterObjectPlugin::Init()
 {

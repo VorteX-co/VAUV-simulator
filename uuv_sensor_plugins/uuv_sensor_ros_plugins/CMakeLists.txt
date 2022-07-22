@@ -232,6 +232,9 @@ if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
 endif()
 
+find_package(gazebo_dev REQUIRED)
+find_package(gazebo_msgs REQUIRED)
+find_package(gazebo_ros REQUIRED)
 find_package(image_transport REQUIRED)
 find_package(nav_msgs REQUIRED)
 find_package(sensor_msgs REQUIRED)
@@ -249,6 +252,8 @@ find_package(std_msgs REQUIRED)
 find_package(ament_cmake REQUIRED)
 
 set(INCLUDE_DIRS include ${image_transport_INCLUDE_DIRS}
+  ${gazebo_ros_INCLUDE_DIRS}
+  ${geometry_msgs_INCLUDE_DIRS}
   ${nav_msgs_INCLUDE_DIRS}
   ${sensor_msgs_INCLUDE_DIRS} ${geometry_msgs_INCLUDE_DIRS}
   ${uuv_gazebo_plugins_INCLUDE_DIRS} ${gazebo_plugins_INCLUDE_DIRS}
@@ -259,7 +264,7 @@ set(INCLUDE_DIRS include ${image_transport_INCLUDE_DIRS}
 include_directories(${INCLUDE_DIRS})
 
 set(LIBRARY_DIRS ${image_transport_LIBRARY_DIRS} ${nav_msgs_LIBRARY_DIRS} ${sensor_msgs_LIBRARY_DIRS}
-  ${geometry_msgs_LIBRARY_DIRS} ${uuv_gazebo_plugins_LIBRARY_DIRS}
+  ${gazebo_ros_LIBRARY_DIRS} ${geometry_msgs_LIBRARY_DIRS} ${uuv_gazebo_plugins_LIBRARY_DIRS}
   ${gazebo_plugins_LIBRARY_DIRS} ${laser_geometry_LIBRARY_DIRS}
   ${message_filters_LIBRARY_DIRS} ${gazebo_dev_LIBRARY_DIRS}
   ${uuv_sensor_ros_plugins_msgs_LIBRARY_DIRS} ${rclcpp_LIBRARY_DIRS}
@@ -281,7 +286,7 @@ find_package(Eigen3 REQUIRED)
 find_package(OGRE REQUIRED)
 find_package(OpenCV REQUIRED)
 find_package(Protobuf REQUIRED)
-#find_package(Boost REQUIRED COMPONENTS system)
+find_package(Boost REQUIRED COMPONENTS system)
 
 file(MAKE_DIRECTORY ${PROJECT_BINARY_DIR}/msgs)
 
@@ -375,6 +380,11 @@ add_dependencies(uuv_gazebo_ros_dvl_plugin uuv_sensor_gazebo_msgs)
 target_link_libraries(uuv_gazebo_ros_dvl_plugin ${LIBS} ${GAZEBO_LIBRARIES})
 list(APPEND UUV_SENSOR_ROS_PLUGINS_LIST uuv_gazebo_ros_dvl_plugin)
 
+add_library(uuv_gazebo_ros_sonar_plugin SHARED src/SonarROSPlugin.cpp)
+add_dependencies(uuv_gazebo_ros_sonar_plugin uuv_sensor_gazebo_msgs)
+target_link_libraries(uuv_gazebo_ros_sonar_plugin ${LIBS} ${GAZEBO_LIBRARIES})
+list(APPEND UUV_SENSOR_ROS_PLUGINS_LIST uuv_gazebo_ros_sonar_plugin)
+
 add_library(uuv_gazebo_ros_magnetometer_plugin SHARED src/MagnetometerROSPlugin.cpp
   src/ROSBasePlugin.cpp src/ROSBaseModelPlugin.cpp)
 add_dependencies(uuv_gazebo_ros_magnetometer_plugin uuv_sensor_gazebo_msgs)
@@ -445,6 +455,7 @@ if(BUILD_TESTING)
   endforeach()
 endif()
 
+ament_export_dependencies(gazebo_ros)
 ament_export_dependencies(image_transport)
 ament_export_dependencies(nav_msgs)
 ament_export_dependencies(sensor_msgs)
@@ -464,7 +475,7 @@ ament_export_include_directories(${INCLUDE_DIRS})
 ament_export_libraries(uuv_sensor_gazebo_msgs uuv_gazebo_ros_base_model_plugin
   uuv_gazebo_ros_base_sensor_plugin uuv_gazebo_ros_gps_plugin
   uuv_gazebo_ros_pose_gt_plugin uuv_gazebo_ros_subsea_pressure_plugin
-  uuv_gazebo_ros_dvl_plugin uuv_gazebo_ros_magnetometer_plugin
+  uuv_gazebo_ros_dvl_plugin uuv_gazebo_sonar_dvl_plugin uuv_gazebo_ros_magnetometer_plugin
   uuv_gazebo_ros_cpc_plugin uuv_gazebo_ros_imu_plugin uuv_gazebo_ros_rpt_plugin
   uuv_gazebo_ros_camera_plugin )# ${LIBS})
 
